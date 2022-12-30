@@ -272,4 +272,15 @@ mod test {
             Roots::One([-0.2857143f32])
         );
     }
+
+    #[test]
+    fn test_find_roots_quartic_failing_case() {
+        let a4 = 0.017350271707711872;
+        let a3 = -0.18749033492394002;
+        let a2 = 0.7583062280164483;
+        let a1 = -1.3604570650442296;
+        let a0 = 0.007953582308820706;
+        let result = find_roots_quartic(a4, a3, a2, a1, a0);
+        assert!(matches!(dbg!(result), Roots::Two(_)));
+    }
 }
